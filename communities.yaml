@@ -1,4 +1,20 @@
+###
+### Brazil
+###
+- name: GruPy-RP
+  lat: -21.176630
+  lng: -47.820840
+  url: https://www.meetup.com/grupy-rp/
+
 - name: Python Floripa
-  lat: -27.571
-  lng: -53.542
+  lat: -27.596910
+  lng: -48.549580
   url: http://floripa.sc.python.org.br/
+
+###
+### South Africa
+###
+- name: Cape Town Python User Group (CTPUG)
+  lat: -33.924870
+  lng: 18.424055
+  url: https://ctpug.org.za/

@@ -12,6 +12,14 @@
   url: http://floripa.sc.python.org.br/
 
 ###
+### Germany
+###
+- name: Python User Group Freiburg
+  lat: 47.993664
+  lng: 7.848796
+  url: https://www.meetup.com/Python-User-Group-Freiburg/
+
+###
 ### South Africa
 ###
 - name: Cape Town Python User Group (CTPUG)

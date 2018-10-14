@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>The Python Community Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="map"></div>
+    <footer>
+      <img class="logo" src="logo.png" />
+      <span class="footer-text">Python Communities Around the World, <a target="_blank" href="https://github.com/jonatasbaldin/python-community-map#how-to-add-a-new-community-to-the-map">add yours!</a></span>
+      <span class="space"></span>
+      <span class="made-by">by <a target="_blank "href="https://deployeveryday.com/">Jojo</a></span>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5n6IqLiunv2aS2Y8FcE0dUD-Mn6iTVXY"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js"> </script>
+
+    <script>
+      var URL = 'https://raw.githubusercontent.com/jonatasbaldin/python-community-map/master/communities.yaml'
+
+      fetch(URL).then(function(response) {
+        response.text().then(function(data) { initMap(data) })
+      })
+
+      function infoWindowContent(strings) {
+        var name = strings[0]
+        var url = strings[1]
+
+        var content = `
+          <div id="content">
+            <div id="siteNotice"></div>
+            <div id="bodyContent">
+              <p><a target="_blank" href="${url}">${name}</a></p>
+            </div>
+          </div>
+        `
+
+        return content
+      }
+
+      function initMap(communities) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 2,
+          center: {lat: -0, lng: -18}
+        });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: '',
+        });
+
+        markers = YAML.parse(communities)
+
+        markers.forEach(function(item) {
+          item['marker'] = new google.maps.Marker({
+            position: {lat: item.lat, lng: item.lng},
+            map: map,
+            title: item.name,
+          })
+
+          item['marker'].addListener('click', function(){
+            infowindow.setContent(infoWindowContent([item.name, item.url]))
+            infowindow.open(map, item['marker'])
+          })
+
+        })
+      }
+      </script>
+
+  </body>
+</html>

@@ -1,5 +1,7 @@
 # Python Community Map
-A map full of lovely Python communities 🐍❤️
+A map full of lovely Python communities 🐍❤️  
+
+This is still hosted under my domain – https://deployeveryday.com/python-community-map/ – but I'll try to get a better one soon, or deploy at the [python.org](https://www.python.org/) site, _that would be cool!_
 
 *This is not a map for specific events or conferences, but rather for local communities.*
 

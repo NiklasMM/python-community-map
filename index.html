@@ -27,10 +27,7 @@
         response.text().then(function(data) { initMap(data) })
       })
 
-      function infoWindowContent(strings) {
-        var name = strings[0]
-        var url = strings[1]
-
+      function infoWindowContent(url, name) {
         var content = `
           <div id="content">
             <div id="siteNotice"></div>
@@ -63,7 +60,7 @@
           })
 
           item['marker'].addListener('click', function(){
-            infowindow.setContent(infoWindowContent([item.name, item.url]))
+            infowindow.setContent(infoWindowContent(item.name, item.url))
             infowindow.open(map, item['marker'])
           })
 
